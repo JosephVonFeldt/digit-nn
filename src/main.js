@@ -3,7 +3,7 @@ let canv = document.getElementById('numCanvas');
 let clr = document.getElementById("clear");
 const ctx = canv.getContext("2d");
 ctx.save();
-ctx.beginPath()
+await ctx.beginPath()
 var chromiumIssue1092080WorkaroundOverlay = document.querySelector('.chromium-issue-1092080-workaround__overlay');
 
 import Module from './nn.js'
@@ -184,12 +184,13 @@ Module().then(function (mymod) {
     clr.addEventListener("click", clear);
     setInterval(fun, 200);
     async function onDraw() {
+
         await ctx.fill()
         await ctx.stroke();
         chromiumIssue1092080WorkaroundOverlay.style.transform = `scaleX(${Math.random()})`
         window.requestAnimationFrame(onDraw)
         await ctx.beginPath()
     }
-    onDraw();
+    window.requestAnimationFrame(onDraw)
     // Something with ctx.stroke() and window.requestAnimationFrame() will fix flickering on mobile
 });
