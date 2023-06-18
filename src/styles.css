@@ -49,6 +49,35 @@ header {
     background: linear-gradient(to bottom, white, white, lightgray);
 }
 
+.close {
+    width:150px;
+    min-width: 150px;
+    height: 150px;
+    padding-top: 2%;
+    font: 60px bolder; font-family: 'Lucida Console',fantasy;
+    margin: 2%;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: black solid;
+    background: linear-gradient(to bottom, white, white, lightgreen);
+}
+
+.veryclose {
+    width:150px;
+    min-width: 150px;
+    height: 150px;
+    padding-top: 2%;
+    font: 60px bolder; font-family: 'Lucida Console',fantasy;
+    margin: 2%;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: black solid;
+    background: linear-gradient(to bottom, white, lightgreen, springgreen);
+}
+
+
 #clear {
     width:250px;
     min-width: 250px;

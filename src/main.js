@@ -115,11 +115,11 @@ Module().then(function (mymod) {
         e.stopImmediatePropagation();
     }
 
-    function start(e) {
+    function start() {
         drawing = true;
     }
 
-    function end(e) {
+    function end() {
         drawing = false;
     }
 
@@ -142,18 +142,35 @@ Module().then(function (mymod) {
             if (!drawing) {
                 for (let i = 0; i < 10; i++) {
                     document.getElementById(i.toString()).textContent = result.at(i).toFixed(5);
+                    if (result.at(i) > .9) {
+                        document.getElementById(i.toString()).parentElement.classList.remove("close");
+                        document.getElementById(i.toString()).parentElement.classList.remove("numbox");
+                        document.getElementById(i.toString()).parentElement.classList.add("veryclose");
+                    }else if (result.at(i) > .7) {
+                        document.getElementById(i.toString()).parentElement.classList.remove("veryclose");
+                        document.getElementById(i.toString()).parentElement.classList.remove("numbox");
+                        document.getElementById(i.toString()).parentElement.classList.add("close");
+                    }else {
+                        document.getElementById(i.toString()).parentElement.classList.remove("close");
+                        document.getElementById(i.toString()).parentElement.classList.remove("veryclose");
+                        document.getElementById(i.toString()).parentElement.classList.add("numbox");
+                    }
+
                 }
             }
         }
     }
 
-    function clear(e) {
+    function clear() {
         ctx.clearRect(0, 0, canv.width, canv.height);
         array1.set(Array(784).fill(0.0));
         result.set(Array(10).fill(0.0))
         hasDrawn = false;
         for (let i = 0; i < 10; i++) {
             document.getElementById(i.toString()).textContent = result.at(i).toFixed(0.0000);
+            document.getElementById(i.toString()).parentElement.classList.remove("close");
+            document.getElementById(i.toString()).parentElement.classList.remove("veryclose");
+            document.getElementById(i.toString()).parentElement.classList.add("numbox");
         }
     }
 
