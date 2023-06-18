@@ -1,0 +1,69 @@
+body {
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 2%;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.outer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+
+header {
+    font: 60px bolder;
+    font-family: 'Lucida Console',fantasy;
+    margin: 5%;
+    text-align: center;
+}
+
+.numrow {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.numbox {
+    width:150px;
+    min-width: 150px;
+    height: 150px;
+    padding-top: 2%;
+    font: 60px bolder; font-family: 'Lucida Console',fantasy;
+    margin: 2%;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: black solid;
+    background: linear-gradient(to bottom, white, white, lightgray);
+}
+
+#clear {
+    width:250px;
+    min-width: 250px;
+    height: auto;
+    padding: 4%;
+    font: 60px bolder;
+    font-family: 'Lucida Console',fantasy ;
+    margin: 4%;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: black solid;
+    background: linear-gradient(to right, darkgray, lightgray, darkgray, lightgray);
+}
+.prob {
+    font-size: 25px;
+}
+

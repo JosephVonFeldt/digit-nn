@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden; background:darkgrey" >
+<meta name="viewport" content=" user-scalable=no">
+<link rel="stylesheet" href="styles.css">
+<script type="application/wasm"  src="nn.wasm"></script>
+<script type="module"  src="nn.js"></script>
+<script type="module"  defer="defer" src="main.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="outer">
+        <header >Digit Recognition</header>
+        <canvas id = "numCanvas" height="520px" width="520px" style="background:linear-gradient(to bottom, lightgray, lightgray, lightgray, darkgray); border: 4px solid black; border-radius: 15px;"></canvas>
+        <button id="clear">Clear</button>
+    </div>
+    <div class="outer" style="padding-top: 5%">
+        <header>Guess</header>
+        <div class="numrow">
+            <div class="numbox">
+                <div> 0 </div>
+                <div class="prob" id="0"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 1 </div>
+                <div class="prob" id="1"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 2 </div>
+                <div class="prob" id="2"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 3 </div>
+                <div class="prob" id="3"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 4 </div>
+                <div class="prob" id="4"> 0 </div>
+            </div>
+        </div>
+        <div class="numrow">
+            <div class="numbox">
+                <div> 5 </div>
+                <div class="prob" id="5"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 6 </div>
+                <div class="prob" id="6"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 7 </div>
+                <div class="prob" id="7"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 8 </div>
+                <div class="prob" id="8"> 0 </div>
+            </div>
+            <div class="numbox">
+                <div> 9 </div>
+                <div class="prob" id="9"> 0 </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
