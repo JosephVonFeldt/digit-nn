@@ -86,7 +86,9 @@ Module().then(function (mymod) {
             dy = Math.max(dy, 0);
             dy = Math.min(dy, 560);
             ctx.fillStyle = "black";
+            canv.locked =true;
             ctx.fillRect(dx - 20, dy - 20, 40, 40);
+            canv.locked =false;
             //ctx.fillStyle = "black";
             //ctx.fillRect(Math.floor(dx/20)*20-10, Math.floor(dy/20)*20-10, 40, 40);
             hasDrawn = true;
