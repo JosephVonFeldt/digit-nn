@@ -2,10 +2,6 @@ let drawing = false;
 let canv = document.getElementById('numCanvas');
 let clr = document.getElementById("clear");
 const ctx = canv.getContext("2d");
-ctx.save();
-await ctx.beginPath()
-var chromiumIssue1092080WorkaroundOverlay = document.querySelector('.chromium-issue-1092080-workaround__overlay');
-
 import Module from './nn.js'
 
 Module().then(function (mymod) {
@@ -90,8 +86,9 @@ Module().then(function (mymod) {
             dy = Math.max(dy, 0);
             dy = Math.min(dy, 560);
             ctx.fillStyle = "black";
-            await ctx.rect(dx - 20, dy - 20, 40, 40);
-            //ctx.fill();
+            canv.locked = true;
+            await ctx.fillRect(dx - 20, dy - 20, 40, 40);
+            canv.locked = false;
             //ctx.fillStyle = "black";
             //ctx.fillRect(Math.floor(dx/20)*20-10, Math.floor(dy/20)*20-10, 40, 40);
             hasDrawn = true;
@@ -109,8 +106,9 @@ Module().then(function (mymod) {
             dy = Math.max(dy, 0);
             dy = Math.min(dy, 560);
             ctx.fillStyle = "black";
-            await ctx.rect(dx - 20, dy - 20, 40, 40);
-            //ctx.fill();
+            canv.locked = true;
+            await ctx.fillRect(dx - 20, dy - 20, 40, 40);
+            canv.locked = false;
             hasDrawn = true;
             addToArr(Math.floor(dx / 20) * 20, Math.floor(dy / 20) * 20)
         }
@@ -169,7 +167,6 @@ Module().then(function (mymod) {
 
     function clear() {
         ctx.clearRect(0, 0, canv.width, canv.height);
-        ctx.reset();
         array1.set(Array(784).fill(0.0));
         result.set(Array(10).fill(0.0))
         hasDrawn = false;
@@ -183,14 +180,4 @@ Module().then(function (mymod) {
 
     clr.addEventListener("click", clear);
     setInterval(fun, 200);
-    async function onDraw() {
-
-        await ctx.fill()
-        await ctx.stroke();
-        chromiumIssue1092080WorkaroundOverlay.style.transform = `scaleX(${Math.random()})`
-        window.requestAnimationFrame(onDraw)
-        await ctx.beginPath()
-    }
-    window.requestAnimationFrame(onDraw)
-    // Something with ctx.stroke() and window.requestAnimationFrame() will fix flickering on mobile
 });
