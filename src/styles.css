@@ -97,3 +97,19 @@ header {
     font-size: 25px;
 }
 
+.chromium-issue-1092080-workaround__wrapper {
+    position: relative;
+}
+
+.chromium-issue-1092080-workaround__overlay {
+    position: absolute;
+    z-index: 2;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.001;
+    background: #000;
+    pointer-events: none;
+}
+

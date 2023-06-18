@@ -4,6 +4,8 @@ let clr = document.getElementById("clear");
 const ctx = canv.getContext("2d");
 ctx.save();
 ctx.beginPath()
+var chromiumIssue1092080WorkaroundOverlay = document.querySelector('.chromium-issue-1092080-workaround__overlay');
+
 import Module from './nn.js'
 
 Module().then(function (mymod) {
@@ -183,7 +185,8 @@ Module().then(function (mymod) {
     setInterval(fun, 200);
     async function onDraw() {
         await ctx.fill()
-        //await ctx.stroke();
+        await ctx.stroke();
+        chromiumIssue1092080WorkaroundOverlay.style.transform = `scaleX(${Math.random()})`
         window.requestAnimationFrame(onDraw)
         await ctx.beginPath()
     }
