@@ -77,7 +77,7 @@ Module().then(function (mymod) {
         //     addVal(Math.floor(dx/20)+1, Math.floor(dy/20)+1);
     }
 
-    function draw(e) {
+    async function draw(e) {
         if (drawing) {
             let dx = Math.round(e.clientX - e.target.getBoundingClientRect().left) - 10;
             let dy = Math.round(e.clientY - e.target.getBoundingClientRect().top) - 10;
@@ -86,9 +86,9 @@ Module().then(function (mymod) {
             dy = Math.max(dy, 0);
             dy = Math.min(dy, 560);
             ctx.fillStyle = "black";
-            canv.locked =true;
-            ctx.fillRect(dx - 20, dy - 20, 40, 40);
-            canv.locked =false;
+            canv.locked = true;
+            await ctx.fillRect(dx - 20, dy - 20, 40, 40);
+            canv.locked = false;
             //ctx.fillStyle = "black";
             //ctx.fillRect(Math.floor(dx/20)*20-10, Math.floor(dy/20)*20-10, 40, 40);
             hasDrawn = true;
@@ -96,7 +96,7 @@ Module().then(function (mymod) {
         }
     }
 
-    function drawMobile(e) {
+    async function drawMobile(e) {
         if (drawing) {
             mobile(e);
             let dx = Math.round(e.touches[0].clientX - e.target.getBoundingClientRect().left) - 10;
@@ -106,7 +106,7 @@ Module().then(function (mymod) {
             dy = Math.max(dy, 0);
             dy = Math.min(dy, 560);
             ctx.fillStyle = "black";
-            ctx.fillRect(dx - 20, dy - 20, 40, 40);
+            await ctx.fillRect(dx - 20, dy - 20, 40, 40);
             hasDrawn = true;
             addToArr(Math.floor(dx / 20) * 20, Math.floor(dy / 20) * 20)
         }
