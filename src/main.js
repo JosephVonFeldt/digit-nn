@@ -98,7 +98,7 @@ Module().then(function (mymod) {
 
     function drawMobile(e) {
         if (drawing) {
-            e.preventDefault();
+            mobile(e);
             let dx = Math.round(e.touches[0].clientX - e.target.getBoundingClientRect().left) - 10;
             let dy = Math.round(e.touches[0].clientY - e.target.getBoundingClientRect().top) - 10;
             dx = Math.max(dx, 0);
