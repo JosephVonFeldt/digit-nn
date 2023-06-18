@@ -22,7 +22,7 @@ body {
 
 header {
     font: 60px bolder;
-    font-family: fantasy;
+    font-family: 'Lucida Console', sans-serif;
     margin: 5%;
     text-align: center;
 }
@@ -40,7 +40,7 @@ header {
     min-width: 150px;
     height: 150px;
     padding-top: 2%;
-    font: 60px bolder; font-family: fantasy;
+    font: 60px bolder; font-family: 'Lucida Console', sans-serif;
     margin: 2%;
     text-align: center;
     justify-content: center;
@@ -54,7 +54,7 @@ header {
     min-width: 150px;
     height: 150px;
     padding-top: 2%;
-    font: 60px bolder; font-family: fantasy;
+    font: 60px bolder; font-family: 'Lucida Console', sans-serif;
     margin: 2%;
     text-align: center;
     justify-content: center;
@@ -68,7 +68,7 @@ header {
     min-width: 150px;
     height: 150px;
     padding-top: 2%;
-    font: 60px bolder; font-family: fantasy;
+    font: 60px bolder; font-family: 'Lucida Console', sans-serif;
     margin: 2%;
     text-align: center;
     justify-content: center;
@@ -80,12 +80,12 @@ header {
 
 #clear {
     width:250px;
-    color: black;
     min-width: 250px;
     height: auto;
     padding: 4%;
     font: 60px bolder;
-    font-family: fantasy ;
+    color: black;
+    font-family: 'Lucida Console', sans-serif ;
     margin: 4%;
     text-align: center;
     justify-content: center;
