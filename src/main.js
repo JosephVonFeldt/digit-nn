@@ -21,7 +21,7 @@ Module().then(function (mymod) {
 
     function addVal(x, y, v) {
         x += 2
-        y += 2
+        y += 3
         //y = Math.min(y + 3, 27)
         if (x < 0 || y < 0) {
             return
@@ -72,9 +72,6 @@ Module().then(function (mymod) {
         addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 - 2), .35);
         addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 + 2), .35);
         addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 - 2), .35);
-        //     addVal(Math.floor(dx/20)+1, Math.floor(dy/20));
-        //     addVal(Math.floor(dx/20), Math.floor(dy/20)+1);
-        //     addVal(Math.floor(dx/20)+1, Math.floor(dy/20)+1);
     }
 
     async function draw(e) {
@@ -144,13 +141,18 @@ Module().then(function (mymod) {
                 result.byteOffset);
             // Show the results.
             if (!drawing) {
+                let tot = 0;
                 for (let i = 0; i < 10; i++) {
-                    document.getElementById(i.toString()).textContent = result.at(i).toFixed(5);
-                    if (result.at(i) > .9) {
+                    tot +=  result.at(i);
+                }
+                for (let i = 0; i < 10; i++) {
+                    let val = result.at(i)/tot;
+                    document.getElementById(i.toString()).textContent = val.toFixed(5);
+                    if (val > .5) {
                         document.getElementById(i.toString()).parentElement.classList.remove("close");
                         document.getElementById(i.toString()).parentElement.classList.remove("numbox");
                         document.getElementById(i.toString()).parentElement.classList.add("veryclose");
-                    }else if (result.at(i) > .7) {
+                    }else if (val > .3) {
                         document.getElementById(i.toString()).parentElement.classList.remove("veryclose");
                         document.getElementById(i.toString()).parentElement.classList.remove("numbox");
                         document.getElementById(i.toString()).parentElement.classList.add("close");
