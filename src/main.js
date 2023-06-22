@@ -58,19 +58,19 @@ Module().then(function (mymod) {
         addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20), .65);
         addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20), .65);
 
-        addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20), .55);
-        addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20), .55);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 + 2), .55);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 - 2), .55);
-
-        addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20 + 1), .35);
-        addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20 - 1), .35);
-        addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20 + 1), .35);
-        addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20 - 1), .35);
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 + 2), .35);
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 - 2), .35);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 + 2), .35);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 - 2), .35);
+        // addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20), .55);
+        // addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20), .55);
+        // addVal(Math.floor(dx / 20), Math.floor(dy / 20 + 2), .55);
+        // addVal(Math.floor(dx / 20), Math.floor(dy / 20 - 2), .55);
+        //
+        // addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20 + 1), .35);
+        // addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20 - 1), .35);
+        // addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20 + 1), .35);
+        // addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20 - 1), .35);
+        // addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 + 2), .35);
+        // addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 - 2), .35);
+        // addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 + 2), .35);
+        // addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 - 2), .35);
     }
 
     async function draw(e) {
