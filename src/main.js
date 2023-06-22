@@ -21,7 +21,7 @@ Module().then(function (mymod) {
 
     function addVal(x, y, v) {
         x += 2
-        y += 4
+        y += 2
         //y = Math.min(y + 3, 27)
         if (x < 0 || y < 0) {
             return
