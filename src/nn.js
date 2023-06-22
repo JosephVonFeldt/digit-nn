@@ -183,9 +183,9 @@ Module.expectedDataFileDownloads++;
   "files": [ {
    "filename": "/testNN3-56SvXz1.nn",
    "start": 0,
-   "end": 1021079
+   "end": 1021056
   } ],
-  "remote_package_size": 1021079
+  "remote_package_size": 1021056
  });
 })();
 
