@@ -33,22 +33,21 @@ Module().then(function (mymod) {
         let ind = y * 28 + x
         let val = array1.at(ind)
         if (val < v) {
-            array1.set([val + .3 * v], ind);
-            //fun();
+            array1.set([Math.min(1, val + .5 * v)], ind);
         }
     }
 
     function addToArr(dx, dy) {
         addVal(Math.floor(dx / 20), Math.floor(dy / 20), 1.5);
-        addVal(Math.floor(dx / 20 + .5), Math.floor(dy / 20), .8);
-        addVal(Math.floor(dx / 20 - .5), Math.floor(dy / 20), .8);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 + .5), .8);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 - .5), .8);
+        addVal(Math.floor(dx / 20 + .5), Math.floor(dy / 20), 1);
+        addVal(Math.floor(dx / 20 - .5), Math.floor(dy / 20), 1);
+        addVal(Math.floor(dx / 20), Math.floor(dy / 20 + .5), 1);
+        addVal(Math.floor(dx / 20), Math.floor(dy / 20 - .5), 1);
 
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 + 1), .75);
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 - 1), .75);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 + 1), .75);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 - 1), .75);
+        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 + 1), .8);
+        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 - 1), .8);
+        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 + 1), .8);
+        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 - 1), .8);
 
         addVal(Math.floor(dx / 20), Math.floor(dy / 20 + 1), .65);
         addVal(Math.floor(dx / 20), Math.floor(dy / 20 - 1), .65);
@@ -161,7 +160,6 @@ Module().then(function (mymod) {
                         document.getElementById(i.toString()).parentElement.classList.remove("veryclose");
                         document.getElementById(i.toString()).parentElement.classList.add("numbox");
                     }
-
                 }
             }
         }
@@ -179,7 +177,6 @@ Module().then(function (mymod) {
             document.getElementById(i.toString()).parentElement.classList.add("numbox");
         }
     }
-
     clr.addEventListener("click", clear);
     setInterval(fun, 200);
 });
