@@ -1,115 +1,424 @@
-body {
-    overflow: hidden;
-    position: relative;
-    margin: 0;
-    padding: 2%;
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+@media (orientation: portrait) {
+    body {
+        /*overflow: hidden;*/
+        position: relative;
+        margin: 0;
+        padding: 2%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .outer {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 3%;
+        width: 51%
+    }
+
+    header {
+        font: xxx-large bolder;
+        font-family: 'Lucida Console', sans-serif;
+        margin: 5%;
+        text-align: center;
+    }
+
+    .numrow {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 30%;
+        margin-top:5%
+    }
+
+    .numbox {
+        width: 100%;
+        min-width: 100%;
+        height: 90%;
+        padding: 2%;
+        font: xxx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 10%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, white, lightgray);
+
+    }
+
+    .close {
+        width: 100%;
+        min-width: 100%;
+        height: 90%;
+        padding: 2%;
+        font: xxx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 10%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, white, lightgreen);
+    }
+
+    .veryclose {
+        width: 100%;
+        min-width: 100%;
+        height: 90%;
+        padding: 2%;
+        font: xxx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 10%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, lightgreen, springgreen);
+    }
+
+
+    #clear {
+        width:60%;
+        min-width: 40%;
+        height: auto;
+        padding: 4%;
+        font: xx-large bolder;
+        color: black;
+        font-family: 'Lucida Console', sans-serif ;
+        margin: 4%;
+        text-align: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: black solid;
+        background: linear-gradient(to right, darkgray, lightgray, darkgray, lightgray);
+    }
+    .prob {
+        font-size: x-large;
+    }
+
+    .chromium-issue-1092080-workaround__wrapper {
+        position: relative;
+    }
+
+    .chromium-issue-1092080-workaround__overlay {
+        position: absolute;
+        z-index: 2;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.001;
+        background: #000;
+        pointer-events: none;
+    }
+
+    #numCanvas {
+        background:linear-gradient(to bottom, lightgray, lightgray, lightgray, darkgray);
+        border: 4px solid black;
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+        aspect-ratio: 1;
+    }
+}
+@media (orientation: landscape) and (max-width: 2399px){
+    body {
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 2%;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .outer {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 3%;
+        /*width: 48%;*/
+        padding: 2%;
+    }
+
+    header {
+        font: xx-large bolder;
+        font-family: 'Lucida Console', sans-serif;
+        margin: 5%;
+        text-align: center;
+    }
+
+    .numrow {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 30%;
+        margin-top:5%
+    }
+
+    .numbox {
+        width: 100%;
+        min-width: 100%;
+        height: 90%;
+        font: xx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 3%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 3px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, white, lightgray);
+
+    }
+
+    .close {
+        width: 100%;
+        min-width: 100%;
+        height: 90%;
+        font: xx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 3%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 3px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, white, lightgreen);
+    }
+
+    .veryclose {
+        width: 100%;
+        min-width: 100%;
+        height: 90%;
+        font: xx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 3%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 3px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, lightgreen, springgreen);
+    }
+
+
+    #clear {
+        width:60%;
+        min-width: 40%;
+        height: auto;
+        padding: 4%;
+        font: x-large bolder;
+        color: black;
+        font-family: 'Lucida Console', sans-serif ;
+        margin: 4%;
+        text-align: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: black solid;
+        background: linear-gradient(to right, darkgray, lightgray, darkgray, lightgray);
+    }
+    .prob {
+        font-size: x-small;
+        overflow: hidden;
+        width: 50px;
+    }
+
+    .chromium-issue-1092080-workaround__wrapper {
+        position: relative;
+    }
+
+    .chromium-issue-1092080-workaround__overlay {
+        position: absolute;
+        z-index: 2;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.001;
+        background: #000;
+        pointer-events: none;
+    }
+
+    #numCanvas {
+        background:linear-gradient(to bottom, lightgray, lightgray, lightgray, darkgray);
+        border: 4px solid black;
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+        aspect-ratio: 1
+    }
 }
 
-.outer {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 3%;
+@media (orientation: landscape) and (min-width: 2400px){
+    body {
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 2%;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .outer {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 5%;
+        margin-top: 3%;
+        width: 50%
+    }
+
+    header {
+        font: xxx-large bolder;
+        font-family: 'Lucida Console', sans-serif;
+        margin: 5%;
+        text-align: center;
+    }
+
+    .numrow {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 30%;
+        margin-top:5%
+    }
+
+    .numbox {
+        width: 100%;
+        min-width: 100%;
+        height: 100px;
+        font: xxx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 5%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, white, lightgray);
+
+    }
+
+    .close {
+        width: 100%;
+        min-width: 100%;
+        height: 100px;
+        font: xxx-large bolder; font-family: 'Lucida Console', sans-serif;
+        margin: 5%;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, white, lightgreen);
+    }
+
+    .veryclose {
+        width: 100%;
+        min-width: 100%;
+        height: 100px;
+        margin: 5%;
+        font: xxx-large bolder; font-family: 'Lucida Console', sans-serif;
+        text-align: center;
+        border-radius: 10px;
+        border: black solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, white, lightgreen, springgreen);
+    }
+
+
+    #clear {
+        width:60%;
+        min-width: 40%;
+        height: auto;
+        padding: 4%;
+        font: xx-large bolder;
+        color: black;
+        font-family: 'Lucida Console', sans-serif ;
+        margin: 4%;
+        text-align: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: black solid;
+        background: linear-gradient(to right, darkgray, lightgray, darkgray, lightgray);
+    }
+    .prob {
+        font-size: x-large;
+        width:120px;
+    }
+
+    .chromium-issue-1092080-workaround__wrapper {
+        position: relative;
+    }
+
+    .chromium-issue-1092080-workaround__overlay {
+        position: absolute;
+        z-index: 2;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.001;
+        background: #000;
+        pointer-events: none;
+    }
+
+    #numCanvas {
+        background:linear-gradient(to bottom, lightgray, lightgray, lightgray, darkgray);
+        border: 4px solid black;
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+        aspect-ratio: 1
+    }
 }
-
-header {
-    font: 60px bolder;
-    font-family: 'Lucida Console', sans-serif;
-    margin: 5%;
-    text-align: center;
-}
-
-.numrow {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.numbox {
-    width:150px;
-    min-width: 150px;
-    height: 150px;
-    padding-top: 2%;
-    font: 60px bolder; font-family: 'Lucida Console', sans-serif;
-    margin: 2%;
-    text-align: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: black solid;
-    background: linear-gradient(to bottom, white, white, lightgray);
-}
-
-.close {
-    width:150px;
-    min-width: 150px;
-    height: 150px;
-    padding-top: 2%;
-    font: 60px bolder; font-family: 'Lucida Console', sans-serif;
-    margin: 2%;
-    text-align: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: black solid;
-    background: linear-gradient(to bottom, white, white, lightgreen);
-}
-
-.veryclose {
-    width:150px;
-    min-width: 150px;
-    height: 150px;
-    padding-top: 2%;
-    font: 60px bolder; font-family: 'Lucida Console', sans-serif;
-    margin: 2%;
-    text-align: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: black solid;
-    background: linear-gradient(to bottom, white, lightgreen, springgreen);
-}
-
-
-#clear {
-    width:250px;
-    min-width: 250px;
-    height: auto;
-    padding: 4%;
-    font: 60px bolder;
-    color: black;
-    font-family: 'Lucida Console', sans-serif ;
-    margin: 4%;
-    text-align: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: black solid;
-    background: linear-gradient(to right, darkgray, lightgray, darkgray, lightgray);
-}
-.prob {
-    font-size: 25px;
-}
-
-.chromium-issue-1092080-workaround__wrapper {
-    position: relative;
-}
-
-.chromium-issue-1092080-workaround__overlay {
-    position: absolute;
-    z-index: 2;
-    width: 1px;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.001;
-    background: #000;
-    pointer-events: none;
-}
-

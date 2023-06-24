@@ -4,6 +4,14 @@ let clr = document.getElementById("clear");
 const ctx = canv.getContext("2d");
 import Module from './nn.js'
 
+let dotSize = canv.getBoundingClientRect().width;
+let h = Math.round(20 * (canv.getBoundingClientRect().width/520));
+function getH(e) {
+    h =  Math.round(20 * (canv.getBoundingClientRect().width/520));
+}
+window.onresize = getH;
+
+
 Module().then(function (mymod) {
 
     let length = 784;
@@ -38,75 +46,79 @@ Module().then(function (mymod) {
     }
 
     function addToArr(dx, dy) {
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20), 1.5);
-        addVal(Math.floor(dx / 20 + .5), Math.floor(dy / 20), 1);
-        addVal(Math.floor(dx / 20 - .5), Math.floor(dy / 20), 1);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 + .5), 1);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 - .5), 1);
+        addVal(Math.floor(dx / h), Math.floor(dy / h), 1.5);
+        addVal(Math.floor(dx / h + .5), Math.floor(dy / h), 1);
+        addVal(Math.floor(dx / h - .5), Math.floor(dy / h), 1);
+        addVal(Math.floor(dx / h), Math.floor(dy / h + .5), 1);
+        addVal(Math.floor(dx / h), Math.floor(dy / h - .5), 1);
 
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 + 1), .8);
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 - 1), .8);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 + 1), .8);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 - 1), .8);
+        addVal(Math.floor(dx / h + 1), Math.floor(dy / h + 1), .8);
+        addVal(Math.floor(dx / h + 1), Math.floor(dy / h - 1), .8);
+        addVal(Math.floor(dx / h - 1), Math.floor(dy / h + 1), .8);
+        addVal(Math.floor(dx / h - 1), Math.floor(dy / h - 1), .8);
 
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 + 1), .65);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 - 1), .65);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 + 1), .65);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 - 1), .65);
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20), .65);
-        addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20), .65);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20), .65);
-        addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20), .65);
+        addVal(Math.floor(dx / h), Math.floor(dy / h + 1), .65);
+        addVal(Math.floor(dx / h), Math.floor(dy / h - 1), .65);
+        addVal(Math.floor(dx / h), Math.floor(dy / h + 1), .65);
+        addVal(Math.floor(dx / h), Math.floor(dy / h - 1), .65);
+        addVal(Math.floor(dx / h + 1), Math.floor(dy / h), .65);
+        addVal(Math.floor(dx / h + 1), Math.floor(dy / h), .65);
+        addVal(Math.floor(dx / h - 1), Math.floor(dy / h), .65);
+        addVal(Math.floor(dx / h - 1), Math.floor(dy / h), .65);
 
-        addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20), .55);
-        addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20), .55);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 + 2), .55);
-        addVal(Math.floor(dx / 20), Math.floor(dy / 20 - 2), .55);
+        addVal(Math.floor(dx / h + 2), Math.floor(dy / h), .55);
+        addVal(Math.floor(dx / h - 2), Math.floor(dy / h), .55);
+        addVal(Math.floor(dx / h), Math.floor(dy / h + 2), .55);
+        addVal(Math.floor(dx / h), Math.floor(dy / h - 2), .55);
 
-        // addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20 + 1), .35);
-        // addVal(Math.floor(dx / 20 + 2), Math.floor(dy / 20 - 1), .35);
-        // addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20 + 1), .35);
-        // addVal(Math.floor(dx / 20 - 2), Math.floor(dy / 20 - 1), .35);
-        // addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 + 2), .35);
-        // addVal(Math.floor(dx / 20 + 1), Math.floor(dy / 20 - 2), .35);
-        // addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 + 2), .35);
-        // addVal(Math.floor(dx / 20 - 1), Math.floor(dy / 20 - 2), .35);
+        addVal(Math.floor(dx / h + 2), Math.floor(dy / h + 1), .35);
+        addVal(Math.floor(dx / h + 2), Math.floor(dy / h - 1), .35);
+        addVal(Math.floor(dx / h - 2), Math.floor(dy / h + 1), .35);
+        addVal(Math.floor(dx / h - 2), Math.floor(dy / h - 1), .35);
+        addVal(Math.floor(dx / h + 1), Math.floor(dy / h + 2), .35);
+        addVal(Math.floor(dx / h + 1), Math.floor(dy / h - 2), .35);
+        addVal(Math.floor(dx / h - 1), Math.floor(dy / h + 2), .35);
+        addVal(Math.floor(dx / h - 1), Math.floor(dy / h - 2), .35);
     }
 
     async function draw(e) {
         if (drawing) {
-            let dx = Math.round(e.clientX - e.target.getBoundingClientRect().left) - 10;
-            let dy = Math.round(e.clientY - e.target.getBoundingClientRect().top) - 10;
+            let dx = Math.round(e.clientX - e.target.getBoundingClientRect().left) - h/2;
+            let dy = Math.round(e.clientY - e.target.getBoundingClientRect().top) - h/2;
             dx = Math.max(dx, 0);
             dx = Math.min(dx, 560);
             dy = Math.max(dy, 0);
             dy = Math.min(dy, 560);
+            let x = dx * 520/canv.getBoundingClientRect().width;
+            let y = dy * 520/canv.getBoundingClientRect().height;
             ctx.fillStyle = "black";
             canv.locked = true;
-            await ctx.fillRect(dx - 20, dy - 20, 40, 40);
+            await ctx.fillRect(x - 20, y - 20, 40, 40);
             canv.locked = false;
             //ctx.fillStyle = "black";
-            //ctx.fillRect(Math.floor(dx/20)*20-10, Math.floor(dy/20)*20-10, 40, 40);
+            //ctx.fillRect(Math.floor(dx/h)*h-h/2, Math.floor(dy/h)*h-h/2, 2 * h, 2 * h);
             hasDrawn = true;
-            addToArr(Math.floor(dx / 20) * 20, Math.floor(dy / 20) * 20)
+            addToArr(Math.floor(dx / h) * h, Math.floor(dy / h) * h)
         }
     }
 
     async function drawMobile(e) {
         if (drawing) {
             mobile(e);
-            let dx = Math.round(e.touches[0].clientX - e.target.getBoundingClientRect().left) - 10;
-            let dy = Math.round(e.touches[0].clientY - e.target.getBoundingClientRect().top) - 10;
+            let dx = Math.round(e.touches[0].clientX - e.target.getBoundingClientRect().left) - h/2;
+            let dy = Math.round(e.touches[0].clientY - e.target.getBoundingClientRect().top) - h/2;
             dx = Math.max(dx, 0);
             dx = Math.min(dx, 560);
             dy = Math.max(dy, 0);
             dy = Math.min(dy, 560);
+            let x = dx * 520/canv.getBoundingClientRect().width;
+            let y = dy * 520/canv.getBoundingClientRect().height;
             ctx.fillStyle = "black";
             canv.locked = true;
-            await ctx.fillRect(dx - 20, dy - 20, 40, 40);
+            await ctx.fillRect(x - 20, y - 20, 40, 40);
             canv.locked = false;
             hasDrawn = true;
-            addToArr(Math.floor(dx / 20) * 20, Math.floor(dy / 20) * 20)
+            addToArr(Math.floor(dx / h) * h, Math.floor(dy / h) * h)
         }
     }
 
