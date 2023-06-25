@@ -181,11 +181,11 @@ Module.expectedDataFileDownloads++;
  };
  loadPackage({
   "files": [ {
-   "filename": "/testNN4-56v3.nn",
+   "filename": "/testNN4-56v6.nn",
    "start": 0,
-   "end": 1085838
+   "end": 1084008
   } ],
-  "remote_package_size": 1085838
+  "remote_package_size": 1084008
  });
 })();
 
