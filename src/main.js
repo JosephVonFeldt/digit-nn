@@ -18,7 +18,10 @@ Module().then(function (mymod) {
 
     let offset = 0
     let array1 = new Float64Array(mymod.asm.memory.buffer, offset, length);
-    array1.set(Array(784).fill(0.0))
+
+    offset += length * Float64Array.BYTES_PER_ELEMENT;
+    let array2 = new Float64Array(mymod.asm.memory.buffer, offset, length);
+    array2.set(Array(784).fill(0.0))
     offset += length * Float64Array.BYTES_PER_ELEMENT;
     length = 10;
     let result = new Float64Array(mymod.asm.memory.buffer, offset, length);
@@ -50,9 +53,9 @@ Module().then(function (mymod) {
             let s = "";
             for (let j = 0; j< 28; j++) {
                 let ind = 28 * i + j;
-                if (array1.at(ind) > .5) {
+                if (array2.at(ind) > .5) {
                     s += '*'
-                } else if (array1.at(ind) > .2) {
+                } else if (array2.at(ind) > .2) {
                     s+= '.'
                 }else {
                     s +=' '
@@ -72,7 +75,7 @@ Module().then(function (mymod) {
         for( let i = 0; i < 28; i++) {
             for (let j = 0; j< 28; j++) {
                 let ind = 28 * i + j;
-                if (array1.at(ind) > 0) {
+                if (array2.at(ind) > 0) {
                     if (left > j) {
                         left = j;
                     }
@@ -97,10 +100,10 @@ Module().then(function (mymod) {
                     let shift = 28 * (i + vert) + (j);
 
                     if (shift < 784 && shift > 0) {
-                        array1.set([array1.at(shift)], ind)
+                        array2.set([array2.at(shift)], ind)
                     }
                     else {
-                        array1.set([0], ind)
+                        array2.set([0], ind)
                     }
                 }
             }
@@ -112,10 +115,10 @@ Module().then(function (mymod) {
                     let shift = 28 * (i + vert) + (j);
 
                     if (shift < 784 && shift > 0) {
-                        array1.set([array1.at(shift)], ind)
+                        array2.set([array2.at(shift)], ind)
                     }
                     else {
-                        array1.set([0], ind)
+                        array2.set([0], ind)
                     }
                 }
             }
@@ -127,10 +130,10 @@ Module().then(function (mymod) {
                     let shift = 28 * (i) + (j + hor);
 
                     if (j + hor < 28 && j + hor >= 0) {
-                        array1.set([array1.at(shift)], ind)
+                        array2.set([array2.at(shift)], ind)
                     }
                     else {
-                        array1.set([0], ind)
+                        array2.set([0], ind)
                     }
                 }
             }
@@ -142,10 +145,10 @@ Module().then(function (mymod) {
                     let shift = 28 * (i) + (j + hor);
 
                     if (j + hor < 28 && j + hor >= 0) {
-                        array1.set([array1.at(shift)], ind)
+                        array2.set([array2.at(shift)], ind)
                     }
                     else {
-                        array1.set([0], ind)
+                        array2.set([0], ind)
                     }
                 }
             }
@@ -155,6 +158,7 @@ Module().then(function (mymod) {
     }
 
     function addToArr(dx, dy) {
+        //dx = 1.2 * dx - 50;
         addVal(Math.floor(dx / h), Math.floor(dy / h), 1.5);
         addVal(Math.floor(dx / h + .5), Math.floor(dy / h), 1);
         addVal(Math.floor(dx / h - .5), Math.floor(dy / h), 1);
@@ -175,19 +179,19 @@ Module().then(function (mymod) {
         addVal(Math.floor(dx / h - 1), Math.floor(dy / h), .65);
         addVal(Math.floor(dx / h - 1), Math.floor(dy / h), .65);
 
-        addVal(Math.floor(dx / h + 2), Math.floor(dy / h), .55);
-        addVal(Math.floor(dx / h - 2), Math.floor(dy / h), .55);
-        addVal(Math.floor(dx / h), Math.floor(dy / h + 2), .55);
-        addVal(Math.floor(dx / h), Math.floor(dy / h - 2), .55);
-
-        // addVal(Math.floor(dx / h + 2), Math.floor(dy / h + 1), .35);
-        // addVal(Math.floor(dx / h + 2), Math.floor(dy / h - 1), .35);
-        // addVal(Math.floor(dx / h - 2), Math.floor(dy / h + 1), .35);
-        // addVal(Math.floor(dx / h - 2), Math.floor(dy / h - 1), .35);
-        // addVal(Math.floor(dx / h + 1), Math.floor(dy / h + 2), .35);
-        // addVal(Math.floor(dx / h + 1), Math.floor(dy / h - 2), .35);
-        // addVal(Math.floor(dx / h - 1), Math.floor(dy / h + 2), .35);
-        // addVal(Math.floor(dx / h - 1), Math.floor(dy / h - 2), .35);
+        // addVal(Math.floor(dx / h + 2), Math.floor(dy / h), .55);
+        // addVal(Math.floor(dx / h - 2), Math.floor(dy / h), .55);
+        // addVal(Math.floor(dx / h), Math.floor(dy / h + 2), .55);
+        // addVal(Math.floor(dx / h), Math.floor(dy / h - 2), .55);
+        //
+        // // addVal(Math.floor(dx / h + 2), Math.floor(dy / h + 1), .35);
+        // // addVal(Math.floor(dx / h + 2), Math.floor(dy / h - 1), .35);
+        // // addVal(Math.floor(dx / h - 2), Math.floor(dy / h + 1), .35);
+        // // addVal(Math.floor(dx / h - 2), Math.floor(dy / h - 1), .35);
+        // // addVal(Math.floor(dx / h + 1), Math.floor(dy / h + 2), .35);
+        // // addVal(Math.floor(dx / h + 1), Math.floor(dy / h - 2), .35);
+        // // addVal(Math.floor(dx / h - 1), Math.floor(dy / h + 2), .35);
+        // // addVal(Math.floor(dx / h - 1), Math.floor(dy / h - 2), .35);
     }
 
     async function draw(e) {
@@ -256,11 +260,12 @@ Module().then(function (mymod) {
     function fun() {
         result.set(Array(10).fill(0.0))
         if (hasDrawn && !drawing) {
+            array2.set(array1);
             // print();
             recenter();
-            // print()
+            //print()
             mymod._guessNum(
-                array1.byteOffset,
+                array2.byteOffset,
                 result.byteOffset);
             // Show the results.
             if (!drawing) {
@@ -285,7 +290,6 @@ Module().then(function (mymod) {
                         document.getElementById(i.toString()).parentElement.classList.add("numbox");
                     }
                 }
-                throw Error;
             }
         }
     }
