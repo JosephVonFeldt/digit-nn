@@ -45,6 +45,115 @@ Module().then(function (mymod) {
         }
     }
 
+    function print() {
+        for( let i = 0; i < 28; i++) {
+            let s = "";
+            for (let j = 0; j< 28; j++) {
+                let ind = 28 * i + j;
+                if (array1.at(ind) > .5) {
+                    s += '*'
+                } else if (array1.at(ind) > .2) {
+                    s+= '.'
+                }else {
+                    s +=' '
+                }
+            }
+            console.log(s);
+        }
+    }
+
+
+    function recenter() {
+        let right = 0;
+        let left = 27;
+        let top = 27;
+        let bottom = 0;
+
+        for( let i = 0; i < 28; i++) {
+            for (let j = 0; j< 28; j++) {
+                let ind = 28 * i + j;
+                if (array1.at(ind) > 0) {
+                    if (left > j) {
+                        left = j;
+                    }
+                    if (right < j) {
+                        right = j;
+                    }
+                    if (top > i) {
+                        top = i
+                    }
+                    if (bottom < i) {
+                        bottom = i;
+                    }
+                }
+            }
+        }
+        let vert = -Math.round(13.5 - (top + bottom)/2);
+        let hor = -Math.round(13.5 - (right + left)/2);
+        if (vert > 0) {
+            for( let i = 0; i < 28; i++) {
+                for (let j = 0; j< 28; j++) {
+                    let ind = 28 * i + j;
+                    let shift = 28 * (i + vert) + (j);
+
+                    if (shift < 784 && shift > 0) {
+                        array1.set([array1.at(shift)], ind)
+                    }
+                    else {
+                        array1.set([0], ind)
+                    }
+                }
+            }
+        }
+        if (vert < 0) {
+            for( let i = 27; i >=0; i--) {
+                for (let j = 0; j< 28; j++) {
+                    let ind = 28 * i + j;
+                    let shift = 28 * (i + vert) + (j);
+
+                    if (shift < 784 && shift > 0) {
+                        array1.set([array1.at(shift)], ind)
+                    }
+                    else {
+                        array1.set([0], ind)
+                    }
+                }
+            }
+        }
+        if (hor > 0) {
+            for( let i = 0; i < 28; i++) {
+                for (let j = 0; j< 28; j++) {
+                    let ind = 28 * i + j;
+                    let shift = 28 * (i) + (j + hor);
+
+                    if (j + hor < 28 && j + hor >= 0) {
+                        array1.set([array1.at(shift)], ind)
+                    }
+                    else {
+                        array1.set([0], ind)
+                    }
+                }
+            }
+        }
+        if (hor < 0) {
+            for( let i = 0; i < 28; i++) {
+                for (let j = 27; j>=0; j--) {
+                    let ind = 28 * i + j;
+                    let shift = 28 * (i) + (j + hor);
+
+                    if (j + hor < 28 && j + hor >= 0) {
+                        array1.set([array1.at(shift)], ind)
+                    }
+                    else {
+                        array1.set([0], ind)
+                    }
+                }
+            }
+        }
+
+
+    }
+
     function addToArr(dx, dy) {
         addVal(Math.floor(dx / h), Math.floor(dy / h), 1.5);
         addVal(Math.floor(dx / h + .5), Math.floor(dy / h), 1);
@@ -147,6 +256,9 @@ Module().then(function (mymod) {
     function fun() {
         result.set(Array(10).fill(0.0))
         if (hasDrawn && !drawing) {
+            // print();
+            recenter();
+            // print()
             mymod._guessNum(
                 array1.byteOffset,
                 result.byteOffset);
@@ -173,6 +285,7 @@ Module().then(function (mymod) {
                         document.getElementById(i.toString()).parentElement.classList.add("numbox");
                     }
                 }
+                throw Error;
             }
         }
     }
