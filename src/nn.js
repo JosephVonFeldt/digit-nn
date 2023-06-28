@@ -183,9 +183,9 @@ Module.expectedDataFileDownloads++;
   "files": [ {
    "filename": "/testNN5-56v5.nn",
    "start": 0,
-   "end": 1160130
+   "end": 1160355
   } ],
-  "remote_package_size": 1160130
+  "remote_package_size": 1160355
  });
 })();
 

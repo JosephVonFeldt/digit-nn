@@ -91,7 +91,7 @@ Module().then(function (mymod) {
                 }
             }
         }
-        let vert = -Math.round(13.5 - (top + bottom)/2);
+        let vert = -Math.round(14 - (top + bottom)/2);
         let hor = -Math.round(13.5 - (right + left)/2);
         if (vert > 0) {
             for( let i = 0; i < 28; i++) {
@@ -179,19 +179,19 @@ Module().then(function (mymod) {
         addVal(Math.floor(dx / h - 1), Math.floor(dy / h), .65);
         addVal(Math.floor(dx / h - 1), Math.floor(dy / h), .65);
 
-        // addVal(Math.floor(dx / h + 2), Math.floor(dy / h), .55);
-        // addVal(Math.floor(dx / h - 2), Math.floor(dy / h), .55);
-        // addVal(Math.floor(dx / h), Math.floor(dy / h + 2), .55);
-        // addVal(Math.floor(dx / h), Math.floor(dy / h - 2), .55);
-        //
-        // // addVal(Math.floor(dx / h + 2), Math.floor(dy / h + 1), .35);
-        // // addVal(Math.floor(dx / h + 2), Math.floor(dy / h - 1), .35);
-        // // addVal(Math.floor(dx / h - 2), Math.floor(dy / h + 1), .35);
-        // // addVal(Math.floor(dx / h - 2), Math.floor(dy / h - 1), .35);
-        // // addVal(Math.floor(dx / h + 1), Math.floor(dy / h + 2), .35);
-        // // addVal(Math.floor(dx / h + 1), Math.floor(dy / h - 2), .35);
-        // // addVal(Math.floor(dx / h - 1), Math.floor(dy / h + 2), .35);
-        // // addVal(Math.floor(dx / h - 1), Math.floor(dy / h - 2), .35);
+        addVal(Math.floor(dx / h + 2), Math.floor(dy / h), .55);
+        addVal(Math.floor(dx / h - 2), Math.floor(dy / h), .55);
+        addVal(Math.floor(dx / h), Math.floor(dy / h + 2), .55);
+        addVal(Math.floor(dx / h), Math.floor(dy / h - 2), .55);
+
+        // addVal(Math.floor(dx / h + 2), Math.floor(dy / h + 1), .35);
+        // addVal(Math.floor(dx / h + 2), Math.floor(dy / h - 1), .35);
+        // addVal(Math.floor(dx / h - 2), Math.floor(dy / h + 1), .35);
+        // addVal(Math.floor(dx / h - 2), Math.floor(dy / h - 1), .35);
+        // addVal(Math.floor(dx / h + 1), Math.floor(dy / h + 2), .35);
+        // addVal(Math.floor(dx / h + 1), Math.floor(dy / h - 2), .35);
+        // addVal(Math.floor(dx / h - 1), Math.floor(dy / h + 2), .35);
+        // addVal(Math.floor(dx / h - 1), Math.floor(dy / h - 2), .35);
     }
 
     async function draw(e) {
